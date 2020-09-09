@@ -47,7 +47,7 @@ import { StarRatingComponent } from './../../pages/star-rating/star-rating.compo
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('113112417924-tsdtkvb6d4dlahcovq22b5dtg5qtous8.apps.googleusercontent.com'),
+            provider: new GoogleLoginProvider('687119860430-grd30639iis5gqhi4su0716mfhm7144h.apps.googleusercontent.com'),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
