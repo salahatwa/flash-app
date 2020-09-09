@@ -53,7 +53,7 @@ export class ApiService {
   }
 
   addPoll(data: PollModel): Observable<PollViewModel> {
-    return this.http.put<PollViewModel>(this._API + 'poll/add', data);
+    return this.http.post<PollViewModel>(this._API + 'poll/add', data);
   }
 
   getPoll(pollguid: string): Observable<PollViewModel> {
@@ -61,7 +61,7 @@ export class ApiService {
   }
 
   addPollVote(data: PollVote): Observable<boolean> {
-    return this.http.put<boolean>(this._API + 'poll/vote', data);
+    return this.http.post<boolean>(this._API + 'poll/vote', data);
   }
 
   pollResult(pollId: string): Observable<PollResult> {
