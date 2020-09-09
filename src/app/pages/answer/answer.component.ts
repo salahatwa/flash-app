@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyQuestionsModel, SurveyModel } from 'src/app/models/survey';
-import { QuestionType, QuestionAnswerRequest, QuestionAnswersBody } from 'src/app/models/question-type';
-import { SurveyService } from 'src/app/services/survey/survey.service';
+import { SurveyQuestionsModel, SurveyModel } from './../../models/survey';
+import { QuestionType, QuestionAnswerRequest, QuestionAnswersBody } from './../../models/question-type';
+import { SurveyService } from './../../services/survey/survey.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StorageService } from 'src/app/services/storage/storage.service';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
-import { ApiService } from 'src/app/services/api/api.service';
+import { StorageService } from './../../services/storage/storage.service';
+import { OverlayService } from './../../components/overlay/overlay.service';
+import { ApiService } from './../../services/api/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

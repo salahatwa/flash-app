@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { OverlayService } from './../../../components/overlay/overlay.service';
 import { ActivatedRoute } from '@angular/router';
-import { PollViewModel, PollResult, GraphResult } from 'src/app/models/poll';
-import { PollService } from 'src/app/services/poll/poll.service';
+import { PollViewModel, PollResult, GraphResult } from './../../../models/poll';
+import { PollService } from './../../../services/poll/poll.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { barChartOptions, parseOptions, chartOptions, pieChartOptions, horizontalBarChartOptions } from 'src/app/variables/charts';
+import { barChartOptions, parseOptions, chartOptions, pieChartOptions, horizontalBarChartOptions } from './../../../variables/charts';
 import Chart from 'chart.js';
-import { Constants } from 'src/app/variables/constants';
+import { Constants } from './../../../variables/constants';
 
 @Component({
   selector: 'app-results-poll',

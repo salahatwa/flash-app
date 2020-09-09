@@ -23,7 +23,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     ComponentsModule,

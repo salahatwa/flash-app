@@ -4,10 +4,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SocialAuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { UserService } from 'src/app/services/user/user.service';
-import { UserSignInModel, SocialPlatform } from 'src/app/models/users';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
-import { Constants } from 'src/app/variables/constants';
+import { UserService } from './../../services/user/user.service';
+import { UserSignInModel, SocialPlatform } from './../../models/users';
+import { OverlayService } from './../../components/overlay/overlay.service';
+import { Constants } from './../../variables/constants';
 
 @Component({
   selector: 'app-login',

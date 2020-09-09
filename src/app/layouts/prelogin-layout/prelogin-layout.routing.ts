@@ -5,13 +5,13 @@ import { Routes } from '@angular/router';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
-import { ThankyouComponent } from 'src/app/pages/thankyou/thankyou.component';
-import { ResultsPollComponent } from 'src/app/pages/poll/results-poll/results-poll.component';
-import { PrivacyComponent } from 'src/app/pages/privacy/privacy.component';
-import { TermsComponent } from 'src/app/pages/terms/terms.component';
-import { LogoutComponent } from 'src/app/pages/logout/logout.component';
-import { ViewSurveyComponent } from 'src/app/pages/survey/view-survey/view-survey.component';
-import { AnswerComponent } from 'src/app/pages/answer/answer.component';
+import { ThankyouComponent } from './../../pages/thankyou/thankyou.component';
+import { ResultsPollComponent } from './../../pages/poll/results-poll/results-poll.component';
+import { PrivacyComponent } from './../../pages/privacy/privacy.component';
+import { TermsComponent } from './../../pages/terms/terms.component';
+import { LogoutComponent } from './../../pages/logout/logout.component';
+import { ViewSurveyComponent } from './../../pages/survey/view-survey/view-survey.component';
+import { AnswerComponent } from './../../pages/answer/answer.component';
 
 export const PreLoginLayoutRoutes: Routes = [
   { path: '', component: LandingComponent },

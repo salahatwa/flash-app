@@ -3,8 +3,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import { UserLoginResponse } from 'src/app/models/users';
-import { Constants } from 'src/app/variables/constants';
+import { UserLoginResponse } from './../../models/users';
+import { Constants } from './../../variables/constants';
 
 @Component({
   selector: 'app-navbar',

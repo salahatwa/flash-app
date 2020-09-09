@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SocialAuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { StorageService } from './../../services/storage/storage.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserSignInModel } from 'src/app/models/users';
+import { UserSignInModel } from './../../models/users';
 
 @Component({
   selector: 'app-register',

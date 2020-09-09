@@ -17,7 +17,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+        loadChildren: () => import(`./layouts/admin-layout/admin-layout.module`).then(m => m.AdminLayoutModule)
       }
     ]
   }, {
@@ -26,7 +26,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './layouts/prelogin-layout/prelogin-layout.module#PreLoginLayoutModule'
+        loadChildren: () => import(`./layouts/prelogin-layout/prelogin-layout.module`).then(m => m.PreLoginLayoutModule)
       }
     ]
   }, {
@@ -38,7 +38,6 @@ const routes: Routes =[
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     RouterModule.forRoot(routes,{
       useHash: false
     })

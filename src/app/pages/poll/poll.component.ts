@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PollViewModel, UserPollsViewModel, UserPollsResponseModel } from 'src/app/models/poll';
-import { PollService } from 'src/app/services/poll/poll.service';
+import { PollViewModel, UserPollsViewModel, UserPollsResponseModel } from './../../models/poll';
+import { PollService } from './../../services/poll/poll.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { OverlayService } from './../../components/overlay/overlay.service';
 // import * as Chart from 'chart.js';
 // import * as ChartGeo from 'chartjs-chart-geo';
 

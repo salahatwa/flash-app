@@ -8,9 +8,9 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
-import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
-import { DashboardMetricTile } from 'src/app/models/dashboard';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { DashboardService } from './../../services/dashboard/dashboard.service';
+import { DashboardMetricTile } from './../../models/dashboard';
+import { OverlayService } from './../../components/overlay/overlay.service';
 
 @Component({
   selector: 'app-dashboard',

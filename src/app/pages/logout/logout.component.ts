@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialAuthService } from 'angularx-social-login';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { StorageService } from './../../services/storage/storage.service';
 
 @Component({
   selector: 'app-logout',

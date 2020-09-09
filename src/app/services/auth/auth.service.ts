@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../storage/storage.service';
-import { Constants } from 'src/app/variables/constants';
+import { Constants } from './../../variables/constants';
 
 @Injectable({
   providedIn: 'root'

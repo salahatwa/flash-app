@@ -1,12 +1,12 @@
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { PollOptionTypes, PollViewModel, PollModel } from 'src/app/models/poll';
+import { PollOptionTypes, PollViewModel, PollModel } from './../../../models/poll';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PollService } from 'src/app/services/poll/poll.service';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
-import { StatusEnum } from 'src/app/variables/status-enum.enum';
+import { PollService } from './../../../services/poll/poll.service';
+import { OverlayService } from './../../../components/overlay/overlay.service';
+import { StatusEnum } from './../../../variables/status-enum.enum';
 
 @Component({
   selector: 'app-create-poll',

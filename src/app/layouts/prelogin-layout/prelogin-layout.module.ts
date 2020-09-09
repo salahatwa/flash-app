@@ -8,15 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
-import { ThankyouComponent } from 'src/app/pages/thankyou/thankyou.component';
-import { ResultsPollComponent } from 'src/app/pages/poll/results-poll/results-poll.component';
+import { ThankyouComponent } from './../../pages/thankyou/thankyou.component';
+import { ResultsPollComponent } from './../../pages/poll/results-poll/results-poll.component';
 import { SocialLoginModule, FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, AmazonLoginProvider } from 'angularx-social-login';
-import { PrivacyComponent } from 'src/app/pages/privacy/privacy.component';
-import { TermsComponent } from 'src/app/pages/terms/terms.component';
-import { ViewSurveyComponent } from 'src/app/pages/survey/view-survey/view-survey.component';
-import { AnswerComponent } from 'src/app/pages/answer/answer.component';
+import { PrivacyComponent } from './../../pages/privacy/privacy.component';
+import { TermsComponent } from './../../pages/terms/terms.component';
+import { ViewSurveyComponent } from './../../pages/survey/view-survey/view-survey.component';
+import { AnswerComponent } from './../../pages/answer/answer.component';
 import { NouisliderModule } from 'ng2-nouislider';
-import { StarRatingComponent } from 'src/app/pages/star-rating/star-rating.component';
+import { StarRatingComponent } from './../../pages/star-rating/star-rating.component';
 
 @NgModule({
   imports: [

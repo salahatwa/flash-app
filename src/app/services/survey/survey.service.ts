@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { QuestionAnswersBody, QuestionAnswerRequest } from 'src/app/models/question-type';
-import { SurveyModel } from 'src/app/models/survey';
+import { QuestionAnswersBody, QuestionAnswerRequest } from './../../models/question-type';
+import { SurveyModel } from './../../models/survey';
 
 @Injectable({
   providedIn: 'root'

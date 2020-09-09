@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyModel, UserSurveysResponseModel, UserSurveysViewModel } from 'src/app/models/survey';
-import { SurveyService } from 'src/app/services/survey/survey.service';
+import { SurveyModel, UserSurveysResponseModel, UserSurveysViewModel } from './../../models/survey';
+import { SurveyService } from './../../services/survey/survey.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { OverlayService } from './../../components/overlay/overlay.service';
 
 @Component({
   selector: 'app-survey',

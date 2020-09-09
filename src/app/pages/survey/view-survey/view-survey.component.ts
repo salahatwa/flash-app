@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SurveyModel } from 'src/app/models/survey';
+import { SurveyModel } from './../../../models/survey';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
-import { SurveyService } from 'src/app/services/survey/survey.service';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { OverlayService } from './../../../components/overlay/overlay.service';
+import { SurveyService } from './../../../services/survey/survey.service';
+import { StorageService } from './../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-view-survey',

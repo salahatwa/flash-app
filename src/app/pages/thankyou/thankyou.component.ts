@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { OverlayService } from './../../components/overlay/overlay.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { SurveyService } from 'src/app/services/survey/survey.service';
+import { SurveyService } from './../../services/survey/survey.service';
 
 @Component({
   selector: 'app-thankyou',

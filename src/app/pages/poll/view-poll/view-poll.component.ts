@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PollOptionVote, PollVote, PollViewModel } from 'src/app/models/poll';
+import { PollOptionVote, PollVote, PollViewModel } from './../../../models/poll';
 import { FormControl, FormArray, FormGroup } from '@angular/forms';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
+import { OverlayService } from './../../../components/overlay/overlay.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PollService } from 'src/app/services/poll/poll.service';
+import { PollService } from './../../../services/poll/poll.service';
 
 @Component({
   selector: 'app-view-poll',

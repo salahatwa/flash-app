@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { Status } from 'src/app/models/status';
-import { PollModel, PollViewModel, PollVote, PollResult, UserPollsResponseModel } from 'src/app/models/poll';
-import { QuestionType, QuestionAnswersBody, QuestionAnswerRequest } from 'src/app/models/question-type';
-import { SurveyModel, UserSurveysResponseModel } from 'src/app/models/survey';
-import { UserSignInModel, UserLoginResponse } from 'src/app/models/users';
-import { DashboardMetricTile } from 'src/app/models/dashboard';
+import { Status } from './../../models/status';
+import { PollModel, PollViewModel, PollVote, PollResult, UserPollsResponseModel } from './../../models/poll';
+import { QuestionType, QuestionAnswersBody, QuestionAnswerRequest } from './../../models/question-type';
+import { SurveyModel, UserSurveysResponseModel } from './../../models/survey';
+import { UserSignInModel, UserLoginResponse } from './../../models/users';
+import { DashboardMetricTile } from './../../models/dashboard';
 @Injectable({
   providedIn: 'root'
 })

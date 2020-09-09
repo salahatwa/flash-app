@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserLoginResponse } from 'src/app/models/users';
-import { Constants } from 'src/app/variables/constants';
+import { UserLoginResponse } from './../../models/users';
+import { Constants } from './../../variables/constants';
 
 @Injectable({
   providedIn: 'root'

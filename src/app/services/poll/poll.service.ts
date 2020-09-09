@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { PollModel, PollVote } from 'src/app/models/poll';
+import { PollModel, PollVote } from './../../models/poll';
 
 @Injectable({
   providedIn: 'root'

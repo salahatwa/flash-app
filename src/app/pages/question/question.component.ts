@@ -1,10 +1,10 @@
 import { Staroptions } from '../../models/staroptions';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SurveyService } from 'src/app/services/survey/survey.service';
-import { ApiService } from 'src/app/services/api/api.service';
-import { QuestionType } from 'src/app/models/question-type';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { SurveyService } from './../../services/survey/survey.service';
+import { ApiService } from './../../services/api/api.service';
+import { QuestionType } from './../../models/question-type';
+import { StorageService } from './../../services/storage/storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatAccordion } from '@angular/material/expansion';
 

@@ -16,10 +16,10 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { FileUploadComponent } from 'src/app/pages/file-upload/file-upload.component';
-import { CreateSurveyComponent } from 'src/app/pages/survey/create-survey/create-survey.component';
-import { QuestionComponent } from 'src/app/pages/question/question.component';
+import { SharedModule } from './../../shared/shared.module';
+import { FileUploadComponent } from './../../pages/file-upload/file-upload.component';
+import { CreateSurveyComponent } from './../../pages/survey/create-survey/create-survey.component';
+import { QuestionComponent } from './../../pages/question/question.component';
 
 @NgModule({
   imports: [

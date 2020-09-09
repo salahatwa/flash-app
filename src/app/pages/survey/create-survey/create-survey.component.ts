@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OverlayService } from 'src/app/components/overlay/overlay.service';
-import { SurveyService } from 'src/app/services/survey/survey.service';
+import { OverlayService } from './../../../components/overlay/overlay.service';
+import { SurveyService } from './../../../services/survey/survey.service';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
-import { SurveyQuestionsModel, SurveyModel } from 'src/app/models/survey';
+import { SurveyQuestionsModel, SurveyModel } from './../../../models/survey';
 
 @Component({
   selector: 'app-create-survey',

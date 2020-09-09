@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StorageService } from 'src/app/services/storage/storage.service';
-import { UserLoginResponse } from 'src/app/models/users';
+import { StorageService } from './../../services/storage/storage.service';
+import { UserLoginResponse } from './../../models/users';
 
 declare interface RouteInfo {
     path: string;
