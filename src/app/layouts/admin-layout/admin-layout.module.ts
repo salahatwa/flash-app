@@ -1,25 +1,25 @@
-import { SuccessComponent } from './../../pages/success/success.component';
-import { CreatePollComponent } from './../../pages/poll/create-poll/create-poll.component';
-import { SurveyComponent } from './../../pages/survey/survey.component';
-import { PollComponent } from './../../pages/poll/poll.component';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from 'ngx-clipboard';
-
-import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { ChannelComponent } from '../../pages/channel/channel.component';
+import { ChannelOperationComponent } from '../../pages/channel/channel-operation/channel-operation.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from './../../shared/shared.module';
-import { FileUploadComponent } from './../../pages/file-upload/file-upload.component';
-import { CreateSurveyComponent } from './../../pages/survey/create-survey/create-survey.component';
+import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { QuestionComponent } from './../../pages/question/question.component';
+import { SuccessComponent } from './../../pages/success/success.component';
+import { CreateSurveyComponent } from './../../pages/survey/create-survey/create-survey.component';
+import { SurveyComponent } from './../../pages/survey/survey.component';
+import { SharedModule } from './../../shared/shared.module';
+import { AdminLayoutRoutes } from './admin-layout.routing';
+
+
 
 @NgModule({
   imports: [
@@ -35,14 +35,13 @@ import { QuestionComponent } from './../../pages/question/question.component';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    PollComponent,
-    CreatePollComponent,
+    ChannelComponent,
+    ChannelOperationComponent,
     SurveyComponent,
     SuccessComponent,
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    FileUploadComponent,
     QuestionComponent,
     CreateSurveyComponent
   ]

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { OverlayService } from './../../../components/overlay/overlay.service';
-import { SurveyService } from './../../../services/survey/survey.service';
+// import { SurveyService } from './../../../services/survey/survey.service';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { SurveyQuestionsModel, SurveyModel } from './../../../models/survey';
@@ -29,7 +29,6 @@ export class CreateSurveyComponent implements OnInit {
 
 
   constructor(private _formBuilder: FormBuilder,
-    private _surveyService: SurveyService,
     private _overlayService: OverlayService,
     private _snackBar: MatSnackBar,
     private _router: Router) {
@@ -136,16 +135,16 @@ export class CreateSurveyComponent implements OnInit {
         return;
       }
 
-      this._surveyService.addSurvey(modifiedData).subscribe(
-        (returnData: SurveyModel) => {
-          this.newSurveyViewModel = returnData;
-          this._overlayService.hide();
-          this._router.navigate([`success/survey/${returnData.surveyGuid}`]);
-        },
-        error => {
-          this.openDismiss('Failed to create survey, please try again', 'Close');
-          this._overlayService.hide();
-        });
+      // this._surveyService.addSurvey(modifiedData).subscribe(
+      //   (returnData: SurveyModel) => {
+      //     this.newSurveyViewModel = returnData;
+      //     this._overlayService.hide();
+      //     this._router.navigate([`success/survey/${returnData.surveyGuid}`]);
+      //   },
+      //   error => {
+      //     this.openDismiss('Failed to create survey, please try again', 'Close');
+      //     this._overlayService.hide();
+      //   });
     }
     else {
       this._overlayService.hide();

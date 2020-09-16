@@ -1,10 +1,10 @@
 import { Staroptions } from '../../models/staroptions';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SurveyService } from './../../services/survey/survey.service';
-import { ApiService } from './../../services/api/api.service';
+// import { SurveyService } from './../../services/survey/survey.service';
+// import { ApiService } from './../../services/api/api.service';
 import { QuestionType } from './../../models/question-type';
-import { StorageService } from './../../services/storage/storage.service';
+// import { StorageService } from './../../services/storage/storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatAccordion } from '@angular/material/expansion';
 
@@ -16,9 +16,7 @@ import { MatAccordion } from '@angular/material/expansion';
 
 
 export class QuestionComponent implements OnInit {
-  constructor(private _snackBar: MatSnackBar,
-    private _apiService: ApiService,
-    private _storageService: StorageService) {
+  constructor(private _snackBar: MatSnackBar) {
   }
 
   get isRequired() {
@@ -64,27 +62,27 @@ export class QuestionComponent implements OnInit {
   }
 
   loadDefaultData() {
-    var questionTypes = this._storageService.getSession('questiontypes');
-    if (questionTypes == null) {
-      this._apiService.getQuestionTypes().subscribe((data) => {
-        this._storageService.setSession('questiontypes', JSON.stringify(data));
-        this.listQuestionTypes = data;
-      });
-    }
-    else {
-      this.listQuestionTypes = JSON.parse(questionTypes) as QuestionType[];
-    }
+    // var questionTypes = this._storageService.getSession('questiontypes');
+    // if (questionTypes == null) {
+    //   this._apiService.getQuestionTypes().subscribe((data) => {
+    //     this._storageService.setSession('questiontypes', JSON.stringify(data));
+    //     this.listQuestionTypes = data;
+    //   });
+    // }
+    // else {
+    //   this.listQuestionTypes = JSON.parse(questionTypes) as QuestionType[];
+    // }
 
-    var starOptions = this._storageService.getSession('starOptions');
-    if (starOptions == null) {
-      this._apiService.getDataStarOptions().subscribe((data) => {
-        this._storageService.setSession('starOptions', JSON.stringify(data));
-        this.listStarOptions = data;
-      });
-    }
-    else {
-      this.listStarOptions = JSON.parse(starOptions) as Staroptions[];
-    }
+    // var starOptions = this._storageService.getSession('starOptions');
+    // if (starOptions == null) {
+    //   this._apiService.getDataStarOptions().subscribe((data) => {
+    //     this._storageService.setSession('starOptions', JSON.stringify(data));
+    //     this.listStarOptions = data;
+    //   });
+    // }
+    // else {
+    //   this.listStarOptions = JSON.parse(starOptions) as Staroptions[];
+    // }
   }
 
   setQuestionType(idx, event) {

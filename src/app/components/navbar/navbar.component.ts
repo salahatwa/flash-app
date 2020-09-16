@@ -1,10 +1,9 @@
-import { StorageService } from './../../services/storage/storage.service';
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+// import { StorageService } from './../../services/storage/storage.service';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserLoginResponse } from './../../models/users';
-import { Constants } from './../../variables/constants';
+import { ROUTES } from '../sidebar/sidebar.component';
+import { UserService } from './../../services/api';
 
 @Component({
   selector: 'app-navbar',
@@ -18,15 +17,19 @@ export class NavbarComponent implements OnInit {
   firstname = '';
   profileUrl = '';
 
-  constructor(location: Location,  private element: ElementRef, private router: Router, private _storageService: StorageService) {
+  constructor(location: Location,  private userService:UserService, private router: Router) {
     this.location = location;
   }
 
   ngOnInit() {
-    let userDetails: UserLoginResponse = JSON.parse(this._storageService.getSession(Constants.SessionKey));
-    this.firstname = userDetails.userName;
-    this.profileUrl = userDetails.profileUrl;
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+   
+    this.userService.currentUser.subscribe((user) => {
+      this.firstname = user.username;
+      this.profileUrl = user.avatar;
+      this.listTitles = ROUTES.filter(listTitle => listTitle);
+    });
+
+  
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());

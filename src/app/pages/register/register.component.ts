@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SocialAuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { StorageService } from './../../services/storage/storage.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { StorageService } from './../../services/storage/storage.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserSignInModel } from './../../models/users';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { UserService } from './../../services/api';
 
 @Component({
   selector: 'app-register',
@@ -15,23 +14,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   //
   public errorMessage = '';
-  public fg: FormGroup;
+  public signUpForm: FormGroup;
   public socialSite = '';
 
 
-  constructor(private snackBar: MatSnackBar,
+  constructor(private userService: UserService,
     private router: Router,
-    private storageService: StorageService,
     private _socialAuthService: SocialAuthService) {
 
 
-    this.fg = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+    this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       email: new FormControl('', [Validators.required, Validators.maxLength(255)]),
       password: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
 
-
+  
     this._socialAuthService.authState.subscribe((user) => {
       console.log(user);
     });
@@ -41,9 +39,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.errorMessage = '';
   }
 
-  onSubmit() {
+  signUp() {
 
-    if (this.fg.valid) {
+    if (this.signUpForm.valid) {
       //let data = this.modifyData(this.fg.value);
 
 
@@ -56,6 +54,19 @@ export class RegisterComponent implements OnInit, OnDestroy {
       //   this.errorMessage = "Incorrect credentails";
       // }
     }
+
+    // this.isSubmitting = true;
+    this.userService
+      .signUp(this.signUpForm.value)
+      .subscribe(
+        data => {
+          this.router.navigate(['/dashboard']);
+          // this.isSubmitting = false;
+        },
+        err => {
+          this.errorMessage = err.message;
+        }
+      );
   }
 
   // modifyData(data): any {

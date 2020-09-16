@@ -3,8 +3,9 @@ import { Overlay, OverlayConfig, OverlayRef, PositionStrategy } from '@angular/c
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Subject } from 'rxjs';
 
-@Injectable()
-
+@Injectable({
+  providedIn: 'root'
+})
 export class OverlayService {
   status: boolean;
   progressBarVisibility: Subject<boolean> = new Subject<boolean>();

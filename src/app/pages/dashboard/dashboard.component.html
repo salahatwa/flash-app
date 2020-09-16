@@ -25,8 +25,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Poll's</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ metricTile.polls }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Posts</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ status?.postCount }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -46,8 +46,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Survey's</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ metricTile.surveys }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Comments</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ status?.commentCount }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -67,8 +67,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Votes Received</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ metricTile.pollVotes }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ status?.userCount }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -88,8 +88,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Feedback's received</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ metricTile.surveyFeedbacks }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Channels</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ status?.channelCount }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-info text-white rounded-circle shadow">

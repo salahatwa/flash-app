@@ -1,0 +1,82 @@
+<div class="header bg-gradient-purple py-7 py-lg-8">
+  <!-- <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Welcome to registration!</h1>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-secondary" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<div class="header container mt--8 pb-5 w-100">
+  <!-- Table -->
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0 text-uppercase">Your Categorie's <span
+                  class="badge badge-pill badge-info">{{pageConfig?.totalElements}}</span></h3>
+            </div>
+            <div class="col text-right">
+              <a [routerLink]="['/category/view/new']" class="btn btn-md btn-primary text-uppercase">Create Category</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" *ngIf="pageConfig?.totalElements > 0">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">img</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let channel of channels">
+                <td>
+                  {{channel?.id}}
+                </td>
+                <td>
+                  {{channel?.name}}
+                </td>
+                <td>
+                  <img defaultImage="https://i.ibb.co/3mYkbST/m.png" [lazyLoad]="channel?.thumbnail" width="50px" height="50px">
+                </td>
+                <td>
+                  <i class="fa" [ngClass]="{'fa-eye-slash': channel?.status=='0', 'fa-eye': channel?.status=='1'}"></i>
+                </td>
+                <td>
+                  <a class="icon-sm icon-shape icon-shape-info cursor-pointer rounded-circle" ngbTooltip="Top"
+                    (click)="updateWeight(channel)" target="_blank"><i class="fa fa-arrow-up"></i></a>
+                  <a class="icon-sm icon-shape icon-shape-primary cursor-pointer rounded-circle"
+                    ngbTooltip="Edit Category" [routerLink]="['/category/view/'+ channel.id]"><i
+                      class="fa fa-pencil"></i></a>
+                  <a class="icon-sm icon-shape icon-shape-warning cursor-pointer rounded-circle ui-state-hover"
+                    ngbTooltip="Delete Category" data-toggle="modal" data-target="#channelDeletedModal"
+                    (click)="askDeleteConfirmation(channel);"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <app-pagination [pageConfig]="pageConfig" (onPageChange)="getCurrentPageChannel($event)"></app-pagination>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

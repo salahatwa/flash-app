@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OverlayService } from './../../components/overlay/overlay.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { SurveyService } from './../../services/survey/survey.service';
+// import { SurveyService } from './../../services/survey/survey.service';
 
 @Component({
   selector: 'app-thankyou',
@@ -15,7 +15,7 @@ export class ThankyouComponent implements OnInit {
   type = '';
   routeGuid = '';
   customMessage = '';
-  constructor(private _overlayService: OverlayService,private _surveyService: SurveyService, private _snackBar: MatSnackBar, private _activateRoute: ActivatedRoute) {
+  constructor(private _overlayService: OverlayService, private _snackBar: MatSnackBar, private _activateRoute: ActivatedRoute) {
     this._overlayService.show();
     this._activateRoute.params.subscribe((data) => {
       this.routeGuid = data['id'];
@@ -25,10 +25,10 @@ export class ThankyouComponent implements OnInit {
         case 'survey':
           this._overlayService.show();
           this.customMessage = '....';
-          this._surveyService.getSurvey(this.routeGuid).subscribe((surveyData) => {
-            this.customMessage = surveyData.endtitle;
-            this._overlayService.hide();
-          });
+          // this._surveyService.getSurvey(this.routeGuid).subscribe((surveyData) => {
+          //   this.customMessage = surveyData.endtitle;
+          //   this._overlayService.hide();
+          // });
           break;
         case 'poll':
           this.sharinglink = this.generatePollLink(this.routeGuid);

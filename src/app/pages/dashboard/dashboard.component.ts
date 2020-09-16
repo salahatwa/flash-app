@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js';
-
-// core components
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2
-} from "../../variables/charts";
-import { DashboardService } from './../../services/dashboard/dashboard.service';
-import { DashboardMetricTile } from './../../models/dashboard';
 import { OverlayService } from './../../components/overlay/overlay.service';
+import { SystemStatus } from './../../models/models';
+import { StatusService } from './../../services/api';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -26,21 +18,22 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   loaded = false;
 
-  metricTile: DashboardMetricTile;
-  constructor(private _dashboardService: DashboardService,
+  status: SystemStatus;
+  constructor(private statusService: StatusService,
     private _overlayService: OverlayService) {
       this._overlayService.show();
-    this._dashboardService.getDashboardTiles().subscribe((data: DashboardMetricTile) =>{
-      this.metricTile = data;
+    this.statusService.getStatus().subscribe((data: SystemStatus) =>{
+      this.status = data;
       this.loaded= true;
       this._overlayService.hide();
     },
     error=>{
       this.loaded= true;
-      this.metricTile.polls = 0;
-      this.metricTile.pollVotes = 0;
-      this.metricTile.surveys = 0;
-      this.metricTile.surveyFeedbacks = 0;
+      this.status={};
+      this.status.channelCount = 0;
+      this.status.commentCount = 0;
+      this.status.postCount = 0;
+      this.status.userCount = 0;
       this._overlayService.hide();
     });
    }

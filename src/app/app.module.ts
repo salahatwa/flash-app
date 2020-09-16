@@ -14,24 +14,23 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { FlashSurveyMaterialModules } from './material.module';
 import { ProgressSpinnerComponent, ProgressSpinnerModule } from './components/progress-spinner/progress-spinner.module';
-import { ApiService } from './services/api/api.service';
+
 import { OverlayService } from './components/overlay/overlay.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { AuthGuardService } from './services/auth/auth-guard.service';
-import { TokenInterceptorService } from './services/tokenInterceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
-    ComponentsModule,
     NgbModule,
     RouterModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
     ProgressSpinnerModule,
+    SharedModule,
     FlashSurveyMaterialModules
   ],
   declarations: [
@@ -44,12 +43,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ProgressSpinnerComponent,
     AppComponent
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }, AuthGuardService, ApiService, OverlayService,
-  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { ViewPollComponent } from './../../pages/poll/view-poll/view-poll.component';
+import { ViewPollComponent } from '../../pages/channel/view-poll/view-poll.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { ThankyouComponent } from './../../pages/thankyou/thankyou.component';
-import { ResultsPollComponent } from './../../pages/poll/results-poll/results-poll.component';
 import { SocialLoginModule, FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, AmazonLoginProvider } from 'angularx-social-login';
 import { PrivacyComponent } from './../../pages/privacy/privacy.component';
 import { TermsComponent } from './../../pages/terms/terms.component';
@@ -32,7 +31,6 @@ import { StarRatingComponent } from './../../pages/star-rating/star-rating.compo
     RegisterComponent,
     StarRatingComponent,
     ViewPollComponent,
-    ResultsPollComponent,
     ViewSurveyComponent,
     AnswerComponent,
     ThankyouComponent,

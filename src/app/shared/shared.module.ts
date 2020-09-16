@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { FileUploadComponent } from '../pages/file-upload/file-upload.component';
-// import { MatProgressBarModule } from '@angular/material/progress-bar';
-// import { MatIcon, MatIconModule } from '@angular/material/icon';
-// import { FlashSurveyMaterialModules } from '../material.module';
+import { NgModule } from '@angular/core';
+import { ComponentsModule } from '../components/components.module';
+import { AuthModule } from '../services/auth/auth.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
-    NgbModule,
+    // RouterModule,
+    // NgbModule,
+    AuthModule,
+    ComponentsModule
     //FlashSurveyMaterialModules
   ],
   declarations: [
@@ -19,6 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   exports: [
     //FileUploadComponent
+    AuthModule,
+    ComponentsModule
   ]
 })
 export class SharedModule { }

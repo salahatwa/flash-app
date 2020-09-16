@@ -4,8 +4,8 @@ import { SurveyModel } from './../../../models/survey';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { OverlayService } from './../../../components/overlay/overlay.service';
-import { SurveyService } from './../../../services/survey/survey.service';
-import { StorageService } from './../../../services/storage/storage.service';
+// import { SurveyService } from './../../../services/survey/survey.service';
+// import { StorageService } from './../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-view-survey',
@@ -22,9 +22,7 @@ export class ViewSurveyComponent implements OnInit {
   constructor(private _activateRoute: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private _router: Router,
-    private _overlayService: OverlayService,
-    private _surveyService: SurveyService,
-    private _storageService: StorageService) {
+    private _overlayService: OverlayService,) {
 
     this.fg = new FormGroup({
       emailId: new FormControl('', Validators.pattern(/[\w-]+@([\w-]+\.)+[\w-]+/))
@@ -33,19 +31,19 @@ export class ViewSurveyComponent implements OnInit {
     this._activateRoute.params.subscribe((data) => {
       this.routeGuid = data['id'];
       this._overlayService.show();
-      this._surveyService.getSurvey(this.routeGuid).subscribe((data: SurveyModel) => {
-        this.surveyData = data;
-        this._surveyService.setCurrentSurvey(this.surveyData);
-        this.loaded = true;
-        this._overlayService.hide();
+      // this._surveyService.getSurvey(this.routeGuid).subscribe((data: SurveyModel) => {
+      //   this.surveyData = data;
+      //   this._surveyService.setCurrentSurvey(this.surveyData);
+      //   this.loaded = true;
+      //   this._overlayService.hide();
 
-        window.sessionStorage.clear();
-        this._storageService.setSession('Survey_Questions_' + this.routeGuid, data.surveyQuestions.length);
-      },
-        error => {
-          this._overlayService.hide();
-          this.errorMessage = error.error;
-        });
+      //   window.sessionStorage.clear();
+      //   this._storageService.setSession('Survey_Questions_' + this.routeGuid, data.surveyQuestions.length);
+      // },
+      //   error => {
+      //     this._overlayService.hide();
+      //     this.errorMessage = error.error;
+      //   });
     });
   }
 
@@ -62,16 +60,16 @@ export class ViewSurveyComponent implements OnInit {
     }
     this._overlayService.show();
 
-    this._surveyService.beginSurvey(this.routeGuid, this.emailId).subscribe((data) => {
-      this._storageService.setSession('Survey_Session_' + this.routeGuid, data['surveyUserGuid']);
-      this.loaded = true;
-      this._overlayService.hide();
-      this._router.navigate([`survey/view/${this.routeGuid}/questions`]);
-    },
-      error => {
-        this._overlayService.hide();
-        this.errorMessage = error.error;
-      });
+    // this._surveyService.beginSurvey(this.routeGuid, this.emailId).subscribe((data) => {
+    //   this._storageService.setSession('Survey_Session_' + this.routeGuid, data['surveyUserGuid']);
+    //   this.loaded = true;
+    //   this._overlayService.hide();
+    //   this._router.navigate([`survey/view/${this.routeGuid}/questions`]);
+    // },
+    //   error => {
+    //     this._overlayService.hide();
+    //     this.errorMessage = error.error;
+    //   });
 
   }
 

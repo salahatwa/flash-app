@@ -29,10 +29,11 @@ const routes: Routes =[
         loadChildren: () => import(`./layouts/prelogin-layout/prelogin-layout.module`).then(m => m.PreLoginLayoutModule)
       }
     ]
-  }, {
-    path: '**',
-    redirectTo: 'home'
-  }
+  }, 
+  // {
+  //   path: '**',
+  //   redirectTo: 'home'
+  // }
 ];
 
 @NgModule({

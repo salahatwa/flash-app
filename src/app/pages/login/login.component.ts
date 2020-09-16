@@ -1,13 +1,11 @@
-import { StorageService } from './../../services/storage/storage.service';
-import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SocialAuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { UserService } from './../../services/user/user.service';
-import { UserSignInModel, SocialPlatform } from './../../models/users';
+import { Router } from '@angular/router';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { UserService } from './../../services/api';
 import { OverlayService } from './../../components/overlay/overlay.service';
-import { Constants } from './../../variables/constants';
+import { SocialPlatform, UserSignInModel } from './../../models/users';
 
 @Component({
   selector: 'app-login',
@@ -16,63 +14,80 @@ import { Constants } from './../../variables/constants';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  //
   public errorMessage = '';
   public platform = '';
-  public fg: FormGroup;
+  public authForm: FormGroup;
 
-  constructor(private snackBar: MatSnackBar,
+  constructor(private userService:UserService,
     private router: Router,
-    private storageService: StorageService,
     private _socialAuthService: SocialAuthService,
-    private _userService: UserService,
     private _overlayService: OverlayService) {
-    this.fg = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+    this.authForm = new FormGroup({
+      username: new FormControl('', [Validators.required, Validators.maxLength(255)]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     });
 
-    this._overlayService.show();
-    this._socialAuthService.initState.subscribe(() => { }, console.error,
-      () => {
-        console.log('all providers are ready');
-        this._overlayService.hide();
-      });
+    // this._overlayService.show();
+    // this._socialAuthService.initState.subscribe(() => { }, console.error,
+    //   () => {
+    //     console.log('all providers are ready');
+    //     this._overlayService.hide();
+    //   });
 
-    this._socialAuthService.authState.subscribe((user) => {
+    // this._socialAuthService.authState.subscribe((user) => {
 
-      let loginUser = new UserSignInModel();
-      let platformDetails = new SocialPlatform();
-      loginUser.name = user.firstName;
-      loginUser.email = user.email;
+    //   let loginUser = new UserSignInModel();
+    //   let platformDetails = new SocialPlatform();
+    //   loginUser.name = user.firstName;
+    //   loginUser.email = user.email;
 
-      platformDetails.platform = this.platform;
-      platformDetails.platformid = user.id;
-      platformDetails.platformImage = user.photoUrl;
+    //   platformDetails.platform = this.platform;
+    //   platformDetails.platformid = user.id;
+    //   platformDetails.platformImage = user.photoUrl;
 
-      loginUser.platformdetail = platformDetails;
-      this._userService.signInUser(loginUser).subscribe((data) => {
-        this.storageService.setSession(Constants.SessionKey, JSON.stringify(data));
-        this.storageService.setSession(Constants.AuthToken, user.authToken);
-        this._overlayService.hide();
-        this.router.navigate(['/dashboard']);
-      },
-        error => {
-          this._overlayService.hide();
-          switch (error.error) {
-            case 'InactiveUser':
-              this.errorMessage = "You are no longer active.";
-              break;
-            case 'InvalidUser':
-              this.errorMessage = "Invalid user detected.";
-              break;
-            default:
-              this.errorMessage = 'Something went wrong';
-              break;
-          }
-        });
-    });
+    //   loginUser.platformdetail = platformDetails;
+    //   this._userService.signInUser(loginUser).subscribe((data) => {
+    //     console.log(data);
+    //     this.storageService.setSession(Constants.SessionKey, JSON.stringify(data));
+    //     this.storageService.setSession(Constants.AuthToken, user.authToken);
+    //     this._overlayService.hide();
+    //     this.router.navigate(['/dashboard']);
+    //   },
+    //     error => {
+    //       this._overlayService.hide();
+    //       switch (error.error) {
+    //         case 'InactiveUser':
+    //           this.errorMessage = "You are no longer active.";
+    //           break;
+    //         case 'InvalidUser':
+    //           this.errorMessage = "Invalid user detected.";
+    //           break;
+    //         default:
+    //           this.errorMessage = 'Something went wrong';
+    //           break;
+    //       }
+    //     });
+    // });
 
+  }
+
+
+  login() {
+    // this.isSubmitting = true;
+    console.log(this.authForm.value);
+    this.userService
+      .attemptAuth(this.authForm.value)
+      .subscribe(
+        data => {
+          this.router.navigate(['/dashboard']);
+          // this.isSubmitting = false;
+        },
+        err => {
+          this.errorMessage = err.message;
+          // this.isSubmitting = false;
+          // this.alertService.error(err.message);
+        }
+      );
   }
 
 
@@ -101,18 +116,5 @@ export class LoginComponent implements OnInit, OnDestroy {
     this._socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
-  onSubmit() {
-
-    if (this.fg.valid) {
-      let data = this.fg.value;
-      if (data.email.endsWith(".com")) {
-        this.storageService.setSession("username", data.email);
-        this.router.navigate(['/dashboard']);
-
-      }
-      else {
-        this.errorMessage = "Incorrect credentails";
-      }
-    }
-  }
+  
 }

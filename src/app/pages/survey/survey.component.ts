@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyModel, UserSurveysResponseModel, UserSurveysViewModel } from './../../models/survey';
-import { SurveyService } from './../../services/survey/survey.service';
+// import { SurveyService } from './../../services/survey/survey.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { OverlayService } from './../../components/overlay/overlay.service';
 
@@ -19,7 +19,7 @@ export class SurveyComponent implements OnInit {
   currentPage = 0;
   totalPages = 1;
 
-  constructor(private _surveyService: SurveyService,
+  constructor(
     private _snackBar: MatSnackBar,
     private _overlayService: OverlayService) {
     this.getSurveys();
@@ -45,37 +45,37 @@ export class SurveyComponent implements OnInit {
 
   getSurveys() {
     this._overlayService.show();
-    this._surveyService.getUserSurveys(this.pageNumber, this.pageSize).subscribe((data: UserSurveysResponseModel) => {
-      this.userSurveys = data.userSurveys;
-      this.totalSurveys = data.totalSurveys;
-      this.totalPages = Math.ceil(this.totalSurveys / this.pageSize);
-      this._overlayService.hide();
-    },
-      error => {
-        this._overlayService.hide();
-        this.openDismiss(error.error, "Dismiss");
-      });
+    // this._surveyService.getUserSurveys(this.pageNumber, this.pageSize).subscribe((data: UserSurveysResponseModel) => {
+    //   this.userSurveys = data.userSurveys;
+    //   this.totalSurveys = data.totalSurveys;
+    //   this.totalPages = Math.ceil(this.totalSurveys / this.pageSize);
+    //   this._overlayService.hide();
+    // },
+    //   error => {
+    //     this._overlayService.hide();
+    //     this.openDismiss(error.error, "Dismiss");
+    //   });
   }
 
 
 
   deleteSurvey(surveyId) {
     this._overlayService.show();
-    this._surveyService.deleteSurvey(surveyId).subscribe((data) => {
-      this.openDismiss("Deleted successfully", "Dismiss");
-      this.getCurrentPageSurveys(this.currentPage);
-    },
-      error => {
-        this._overlayService.hide();
-        switch (error.error) {
-          case 'InvalidOperation':
-            this.openDismiss("You are no longer authorized to delete this poll", "Dismiss");
-            break;
-          default:
-            this.openDismiss("Something went wrong we can investiage further", "Dismiss");
-            break;
-        }
-      });
+    // this._surveyService.deleteSurvey(surveyId).subscribe((data) => {
+    //   this.openDismiss("Deleted successfully", "Dismiss");
+    //   this.getCurrentPageSurveys(this.currentPage);
+    // },
+    //   error => {
+    //     this._overlayService.hide();
+    //     switch (error.error) {
+    //       case 'InvalidOperation':
+    //         this.openDismiss("You are no longer authorized to delete this poll", "Dismiss");
+    //         break;
+    //       default:
+    //         this.openDismiss("Something went wrong we can investiage further", "Dismiss");
+    //         break;
+    //     }
+    //   });
   }
 
   // open snackbar

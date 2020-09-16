@@ -1,0 +1,74 @@
+<div class="header bg-gradient-purple pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <div class="col-xl-12 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">New Category</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary d-none">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="channelForm" (ngSubmit)="onSubmit()">
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+
+                      <div class="form-group">
+                        <label class="form-control-label" for="name">Name</label>
+                        <input type="text" id="name" required class="form-control form-control-alternative"
+                          placeholder="Ex: Category Name?" formControlName="name">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="status">Status</label>
+                        <select class="form-control" formControlName="status" #status
+                          (change)="changeStatus($event.target.value)">
+                          <option *ngFor="let status of ChannelStatus| keyvalue" [value]="status.value">{{ status.key }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+
+
+
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <label class="form-control-label">Thumbnail</label>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <app-file-upload [selectedImage]="channelForm.controls['thumbnail'].value"
+                            [clearFileAfterUpload]="true" text="Upload images" (complete)="onFileComplete($event)"
+                            (remove)="onFileRemove($event)"></app-file-upload>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+
+                <button type="submit" class="btn btn-primary btn fa"
+                  [disabled]="formSubmitted || this.channelForm.invalid">
+                  <i class="fa" [ngClass]="{'fa-spin fa-spinner': formSubmitted, 'fa-check': !formSubmitted}"></i>
+                  Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
