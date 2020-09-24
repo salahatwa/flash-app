@@ -17,3 +17,4 @@ export * from './userVO';
 export * from './api.error';
 export * from './config';
 export * from './encoder';
+export * from './provider'

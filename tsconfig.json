@@ -16,6 +16,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      // "@shared/*": ["demo/src/app/shared/*"],
+      // "@app/*": ["demo/src/app/*"],
+      "ngx-markdown": ["lib/src"]
+    }
   }
 }

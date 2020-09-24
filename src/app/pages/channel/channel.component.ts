@@ -46,7 +46,7 @@ export class ChannelComponent implements OnInit {
       });
   }
 
-  getCurrentPageChannel(pagenumber) {
+  pageChanged(pagenumber) {
     this.pageConfig.currentPage = pagenumber;
     this.getChannels(this.pageConfig.currentPage);
   }
@@ -84,7 +84,7 @@ export class ChannelComponent implements OnInit {
     this._overlayService.show();
     this.channelService.delete(channelId).subscribe((data) => {
       this.openDismiss("Deleted successfully", "Dismiss");
-      this.getCurrentPageChannel(this.pageConfig.currentPage);
+      this.pageChanged(this.pageConfig.currentPage);
     },
       error => {
         this._overlayService.hide();

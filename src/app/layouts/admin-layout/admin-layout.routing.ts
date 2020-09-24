@@ -7,6 +7,8 @@ import { SuccessComponent } from './../../pages/success/success.component';
 import { CreateSurveyComponent } from './../../pages/survey/create-survey/create-survey.component';
 import { SurveyComponent } from './../../pages/survey/survey.component';
 import { AuthGuard } from './../../services/auth/auth-guard.service';
+import { ProviderComponent } from './../../pages/provider/provider.component';
+import { SecureLoadingComponent } from 'src/app/components/secure-loading/secure-loading.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -14,6 +16,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard]  },
     { path: 'category',   component: ChannelComponent, canActivate: [AuthGuard]  },
     { path: 'category/view/:id',   component: ChannelOperationComponent, canActivate: [AuthGuard]  },
+    { path: 'social-accounts',   component: ProviderComponent, canActivate: [AuthGuard]  },
+    { path: 'secure_loading',   component: SecureLoadingComponent, canActivate: [AuthGuard]  },
+    
     { path: 'survey',   component: SurveyComponent , canActivate: [AuthGuard] },
     { path: 'survey/new',   component: CreateSurveyComponent},
     { path: 'success/:type/:id',   component: SuccessComponent, canActivate: [AuthGuard] }

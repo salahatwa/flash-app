@@ -31,7 +31,7 @@ import { SharedModule } from './shared/shared.module';
     MatProgressSpinnerModule,
     ProgressSpinnerModule,
     SharedModule,
-    FlashSurveyMaterialModules
+    FlashSurveyMaterialModules,
   ],
   declarations: [
     ProgressSpinnerComponent,

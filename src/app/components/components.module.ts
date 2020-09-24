@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+import { SecureLoadingComponent } from './secure-loading/secure-loading.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
     SidebarComponent,
     PaginationComponent,
     FileUploadComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SecureLoadingComponent
   ],
   exports: [
     FooterComponent,
@@ -32,7 +34,8 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
     PaginationComponent,
     FileUploadComponent,
     LazyLoadImageModule,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SecureLoadingComponent
   ]
 })
 export class ComponentsModule { }

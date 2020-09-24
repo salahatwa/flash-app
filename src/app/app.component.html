@@ -1,3 +1,30 @@
 <router-outlet></router-outlet>
 <app-progress-spinner [displayProgressSpinner]="displayProgressSpinner">
 </app-progress-spinner>
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <form [formGroup]="templateForm" novalidate>
+        <div class="editor">
+          <label>Editor</label>
+          <angular-markdown-editor textareaId="area1" [options]="editorOptions" rows="12" formControlName="body">
+          </angular-markdown-editor>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="col-md-12">
+      <app-scrollspy-nav-layout [headings]="headings">
+        <markdown [data]="templateForm.value.body" lineNumbers [start]="1" (ready)="onLoad()">
+        </markdown>
+      </app-scrollspy-nav-layout>
+    </div> 
+
+  </div>
+</div> -->
+

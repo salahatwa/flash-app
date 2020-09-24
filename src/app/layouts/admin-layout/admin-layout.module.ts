@@ -5,13 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ChannelOperationComponent } from '../../pages/channel/channel-operation/channel-operation.component';
+import { ChannelComponent } from '../../pages/channel/channel.component';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
-import { ChannelComponent } from '../../pages/channel/channel.component';
-import { ChannelOperationComponent } from '../../pages/channel/channel-operation/channel-operation.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { ProviderComponent } from './../../pages/provider/provider.component';
 import { QuestionComponent } from './../../pages/question/question.component';
 import { SuccessComponent } from './../../pages/success/success.component';
 import { CreateSurveyComponent } from './../../pages/survey/create-survey/create-survey.component';
@@ -36,6 +37,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
     DashboardComponent,
     UserProfileComponent,
     ChannelComponent,
+    ProviderComponent,
     ChannelOperationComponent,
     SurveyComponent,
     SuccessComponent,
@@ -47,4 +49,4 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

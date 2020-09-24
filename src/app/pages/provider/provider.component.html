@@ -1,0 +1,147 @@
+<!-- <h2 class="heading text-center">All Accounts</h2>
+
+<h5 class="mt-4">Add account
+
+  <button class="btn px-4 btn-social btn-twitter" [disabled]="isSubmitting" [class.spinner]="isSubmitting"
+    (click)="twitterLogin()">
+    <span class="fa fa-twitter"></span> Twitter
+  </button>
+
+  <button class="btn px-4 btn-social btn-linkedin" [disabled]="isSubmitting" [class.spinner]="isSubmitting"
+    (click)="linkedLogin()">
+    <span class="fa fa-linkedin"></span> LinkedIn
+  </button>
+
+</h5>
+<div class="card">
+  <div class="card-body table-responsive">
+
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Expire At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <div *ngIf="isLoading" class="loading-section d-flex justify-content-center align-items-center">
+          <div class="spinner-border spinner-border-lg text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <tr *ngFor="let provider of providers;let i=index;">
+          <th scope="row">{{provider.name}}</th>
+          <td>
+            <span class="fa "
+              [ngClass]="{'fa-linkedin':provider.providerType==='LINKEDIN','fa-twitter':provider.providerType==='TWITTER'}"></span>
+          </td>
+          <td>
+            {{ provider.createdAt | timeAgo }}
+          </td>
+          <td>
+            {{provider.expireAt}}
+          </td>
+          <td>
+            <button class="btn  btn-just-icon btn-round btn-light" (click)="removeProvider(provider?.id,i)"><i
+                class="material-icons">delete</i></button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <app-pagination [pageConfig]="pageConfig" (onPageChange)="pageChanged($event)"></app-pagination>
+
+
+  </div>
+</div>
+<p class="d-block text-right text-muted"> for more info:
+  <a href="http://l-lin.github.io/angular-datatables/" target="_blank">Angular Datatables
+    <i class="material-icons" style="font-size: .9rem">launch</i>
+  </a>
+</p> -->
+
+
+<div class="header bg-gradient-purple py-7 py-lg-8">
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-secondary" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<div class="header container mt--8 pb-5 w-100">
+  <!-- Table -->
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0 text-uppercase">Your Account's <span
+                  class="badge badge-pill badge-info">{{pageConfig?.totalElements}}</span></h3>
+            </div>
+            <div class="col text-right">
+
+              <button class="btn px-4 btn-md btn-social btn-twitter" [disabled]="isSubmitting"
+                [class.spinner]="isSubmitting" (click)="twitterLogin()">
+                <span class="fa fa-twitter"></span>Add twitter
+              </button>
+
+              <button class="btn px-4 btn-md btn-social btn-linkedin" [disabled]="isSubmitting"
+                [class.spinner]="isSubmitting" (click)="linkedLogin()">
+                <span class="fa fa-linkedin"></span> Add linkedIn
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" *ngIf="pageConfig?.totalElements > 0">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Expire At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let provider of providers;let i=index;">
+                <td>
+                  {{provider.name}}
+                </td>
+                <td>
+                  <span class="fa "
+                    [ngClass]="{'fa-linkedin':provider.providerType==='LINKEDIN','fa-twitter':provider.providerType==='TWITTER'}"></span>
+                </td>
+                <td>
+                  {{ provider.createdAt | timeAgo }}</td>
+                <td>
+                  {{provider.expireAt}}
+                </td>
+                <td>
+                  <a class="icon-sm icon-shape icon-shape-warning cursor-pointer rounded-circle ui-state-hover"
+                    ngbTooltip="Delete Category" (click)="askDeleteConfirmation(provider);"><i
+                      class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <app-pagination [pageConfig]="pageConfig" (onPageChange)="pageChanged($event)"></app-pagination>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

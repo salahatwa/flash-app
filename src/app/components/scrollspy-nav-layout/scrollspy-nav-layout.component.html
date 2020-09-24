@@ -1,0 +1,29 @@
+<!-- <div class="container"> -->
+  <div class="row" >
+    <div class="col-md-10">
+      <ng-content></ng-content>
+
+      <!-- <button class="scrollup-button--fixed" class="btn btn-primary btn-circle btn-sm"  (click)="onScrollUp()" *ngIf="showScrollUpButton"
+        [@zoomAnimation]>
+        <img src="assets/img/icons/icon-chevron-up.svg">
+      </button> -->
+    </div>
+
+    <div class="col-md-2">
+      <div class="sticky" style="flex-direction: column;
+      box-sizing: border-box;
+      display: flex;
+      flex: 1 0 180px;
+      min-width: 180px;
+      align-self: flex-start;">
+        <app-scrollspy-nav [headings]="headings"></app-scrollspy-nav>
+        <button class="scrollup-button" class="btn btn-primary btn-circle btn-sm"  (click)="onScrollUp()" *ngIf="showScrollUpButton"
+          [@zoomAnimation]>
+          <img src="assets/img/icons/icon-chevron-up.svg">
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+<!-- </div> -->

@@ -21,7 +21,7 @@ export class ChannelOperationComponent implements OnInit {
 
   channelForm: FormGroup;
   formSubmitted = false;
-  channel: Channel={};
+  channel: Channel = {};
   ChannelStatus = ChannelStatus;
 
 
@@ -79,13 +79,20 @@ export class ChannelOperationComponent implements OnInit {
     if (this.channelForm.valid) {
 
       this._overlayService.show();
-      Object.assign(this.channelForm.value, this.channel);
+
+      console.log(this.channelForm.value);
+
+
+      Object.assign(this.channel, this.channelForm.value);
+
+
       console.log(this.channel);
       this.channelService.update(this.channel).pipe(finalize(() => {
         this._overlayService.hide();
         this.formSubmitted = false;
       })).subscribe(
         (result: Channel) => {
+          this.channel = result;
           this.openDismiss('Success created Category ' + result.name, 'Close');
         },
         error => {
