@@ -7,6 +7,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ScrollspyNavLayoutModule } from '../components/scrollspy-nav-layout/scrollspy-nav-layout.module';
 import { AuthModule } from '../services/auth/auth.module';
 import { TimeAgoModule } from './timeAgo/time-ago.module';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 
 export function markedOptionsFactory(anchorService: AnchorService): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -42,7 +43,8 @@ export function markedOptionsFactory(anchorService: AnchorService): MarkedOption
       // to avoid passing the same options over and over in each components of your App
       iconlibrary: 'glyph'
     }),
-    TimeAgoModule
+    TimeAgoModule,
+    Ng2FlatpickrModule
     //FlashSurveyMaterialModules
   ],
   declarations: [
@@ -56,7 +58,8 @@ export function markedOptionsFactory(anchorService: AnchorService): MarkedOption
     ScrollspyNavLayoutModule,
     AngularMarkdownEditorModule,
     ReactiveFormsModule,
-    TimeAgoModule
+    TimeAgoModule,
+    Ng2FlatpickrModule
   ]
 })
 export class SharedModule { }

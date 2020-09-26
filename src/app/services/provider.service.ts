@@ -2,6 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CustomHttpUrlEncodingCodec } from '../models/models';
 import { ApiService } from './api.service';
 
 
@@ -16,7 +17,7 @@ export class ProviderService {
   ) { }
 
   getUserProviderList(pageNo?: number, pageSize?: number, sortBy?: string): Observable<any> {
-    let queryParameters = new HttpParams();
+    let queryParameters =new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
     if (pageNo !== undefined && pageNo !== null) {
       queryParameters = queryParameters.set('pageNo', <any>pageNo);
     }

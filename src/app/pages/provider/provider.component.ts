@@ -8,7 +8,7 @@ import { ProviderService } from './../../services/provider.service';
 import { UserService } from './../../services/api';
 import { UtilService } from './../../services/util.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmDialogComponent } from 'src/app/components/dialogs/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from './../../components/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-provider',
@@ -40,6 +40,7 @@ export class ProviderComponent implements OnInit {
 
     this.providerService.getUserProviderList(pageNo).pipe(finalize(() => {
       this.isLoading = false;
+      this._overlayService.hide();
     })).subscribe(data => {
       this.providers = data.content;
 

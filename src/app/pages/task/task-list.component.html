@@ -1,0 +1,129 @@
+<div class="header bg-gradient-purple py-7 py-lg-8">
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-secondary" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<div class="header container mt--8 pb-5 w-100">
+  <!-- Table -->
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0 text-uppercase">Your Task's <span
+                  class="badge badge-pill badge-info">{{pageConfig?.totalElements}}</span></h3>
+            </div>
+            <div class="col text-right">
+              <a [routerLink]="['/task/view/new']" class="btn btn-md btn-primary text-uppercase">Create Task</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" *ngIf="pageConfig?.totalElements > 0">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Scheduled</th>
+                <th scope="col">Executed</th>
+                <th>Error</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <th>{{task.id}}</th>
+                <td>{{task.scheduled}}</td>
+                <td>{{task.executed}}</td>
+                <th>{{task.error}}</th>
+                <td>
+                  <a class="icon-sm icon-shape icon-shape-info cursor-pointer rounded-circle" ngbTooltip="Copy"
+                    (click)="copy(task)" target="_blank"><i class="fa fa-arrow-up"></i></a>
+                  <a class="icon-sm icon-shape icon-shape-primary cursor-pointer rounded-circle"
+                    ngbTooltip="Edit Task" [routerLink]="['/task/view/'+ task.id]"><i
+                      class="fa fa-pencil"></i></a>
+                  <a class="icon-sm icon-shape icon-shape-warning cursor-pointer rounded-circle ui-state-hover"
+                    ngbTooltip="Delete task"
+                    (click)="askDeleteConfirmation(task);"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <app-pagination [pageConfig]="pageConfig" (onPageChange)="pageChanged($event)"></app-pagination>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <h2 class="heading text-center">Smart Table</h2>
+
+<h5 class="mt-4">Smart Table
+
+  <a class="btn px-4"  [class.spinner]="isSubmitting" [routerLink]="['/dashboard/post/new']">
+    <span class="fa fa-plus"></span> Add
+  </a>
+
+  
+</h5>
+
+
+<div class="card">
+  <div class="card-body">
+      <table id="data_table" class="display table responsive no-wrap">
+
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Scheduled</th>
+              <th scope="col">Executed</th>
+              <th>Error</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div *ngIf="isLoading" class="loading-section d-flex justify-content-center align-items-center">
+              <div class="spinner-border spinner-border-lg text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            
+            <tr *ngFor="let task of tasks ;let i=index">
+              <th scope="row">{{task.id}}</th>
+              <td>{{task.scheduled}}</td>
+              <td>{{task.executed}}</td>
+              <th>{{task.error}}</th>
+              <td>
+            
+                <a [routerLink]="['/dashboard/post/',task.id]">
+                  <i class="material-icons">edit</i>
+                </a>
+
+                <button class="btn  btn-just-icon btn-round btn-light" (click)="deleteTask(task?.id,i)"><i class="material-icons">delete</i></button>
+
+                
+              </td>
+            </tr>
+           
+          </tbody>
+      </table>
+
+      <app-pagination [pageConfig]="pageConfig" (onPageChange)="pageChanged($event)"></app-pagination>
+
+      
+  </div>
+</div>
+<p class="d-block text-right text-muted"> for more info:
+  <a href="http://l-lin.github.io/angular-datatables/" target="_blank">Angular Datatables
+    <i class="material-icons" style="font-size: .9rem">launch</i>
+  </a>
+</p> -->

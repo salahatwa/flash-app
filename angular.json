@@ -38,7 +38,8 @@
               "src/assets/scss/argon.scss",
               "./node_modules/bootstrap-markdown/css/bootstrap-markdown.min.css",
               "./node_modules/prismjs/themes/prism-okaidia.css",
-              "./node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "./node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
@@ -134,18 +135,18 @@
             ]
           }
         },
-        "e2e": 				{
-					"builder": "@angular-devkit/build-angular:protractor",
-					"options": 					{
-						"protractorConfig": "e2e/protractor.conf.js",
-						"devServerTarget": "flashsurvey:serve"
-					},
-					"configurations": 					{
-						"production": 						{
-							"devServerTarget": "flashsurvey:serve:production"
-						}
-					}
-				},
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "flashsurvey:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "flashsurvey:serve:production"
+            }
+          }
+        },
         "deploy": {
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
