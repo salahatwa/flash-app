@@ -4,14 +4,13 @@ import { Observable, throwError } from 'rxjs';
 
 import { catchError } from 'rxjs/operators';
 import { JwtService } from './auth/jwt.service';
-import { ApiError ,Config} from './../models/models';
+import { ApiError, Config } from './../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  config = new Config();
-
+  config: Config = new Config();
   constructor(
     private http: HttpClient,
     private jwtService: JwtService
@@ -54,7 +53,7 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  post(path: string, body: Object = {},queryParameters?:HttpParams): Observable<any> {
+  post(path: string, body: Object = {}, queryParameters?: HttpParams): Observable<any> {
     return this.http.post(
       `${this.config.api}${path}`,
       body,

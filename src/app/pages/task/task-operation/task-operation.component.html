@@ -42,8 +42,8 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="date">Date</label>
-                                        <input [flatpickr]="dateTimeOptions" formControlName="dateTime" class="form-control"
-                                            placeholder="Date" />
+                                        <input [flatpickr]="dateTimeOptions" formControlName="dateTime"
+                                            class="form-control" placeholder="Date" />
                                     </div>
 
                                     <div class="form-group col-md-3">
@@ -53,15 +53,9 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-
-                                        <label for="time">Enable</label>
-                                        <div class="material-switch pull-right">
-                                            <label  for="customSwitches" class="label-success">Enable
-                                                schedular</label>
-                                            <input  type="checkbox"  id="customSwitches"
-                                                formControlName="enabled">
-                                            
-                                        </div>
+                                        <label for="customSwitches" >Enable</label>
+                                        <input type="checkbox"  id="customSwitches"
+                                            formControlName="enabled">
                                     </div>
                                 </div>
 

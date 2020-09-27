@@ -13,7 +13,7 @@
     "start:heroku": "node dist/flashsurvey/server/main.js",
     "dev:ssr": "ng run flashsurvey:serve-ssr",
     "serve:ssr": "node dist/flashsurvey/server/main.js",
-    "build:ssr": "ng build --prod && ng run flashsurvey:server:production",
+    "build:ssr": "ng build --configuration=production && ng run flashsurvey:server:production",
     "prerender": "ng run flashsurvey:prerender"
   },
   "private": true,
