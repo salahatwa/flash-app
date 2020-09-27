@@ -36,9 +36,15 @@
             <tbody>
               <tr *ngFor="let task of tasks">
                 <th>{{task.id}}</th>
-                <td>{{task.scheduled}}</td>
-                <td>{{task.executed}}</td>
-                <th>{{task.error}}</th>
+                <td>
+                  <i class="fa" [ngClass]="{'fa-check': task.scheduled, 'fa-times': !task.scheduled}"></i>
+                </td>
+                <td>
+                  <i class="fa" [ngClass]="{'fa-check': task.executed, 'fa-times': !task.executed}"></i>
+                </td>
+                <th>
+                  <i class="fa" [ngClass]="{'fa-check': task.error, 'fa-times': !task.error}"></i>
+                </th>
                 <td>
                   <a class="icon-sm icon-shape icon-shape-info cursor-pointer rounded-circle" ngbTooltip="Copy"
                     (click)="copy(task)" target="_blank"><i class="fa fa-arrow-up"></i></a>
