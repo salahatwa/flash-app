@@ -2,7 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import { of } from 'rxjs';
@@ -10,6 +10,7 @@ import { Task } from './../../../models/task';
 import { TaskService } from './../../../services/task.service';
 import { TaskConfirmationDialogComponent } from './task-confirmation-create/task-confirmation-dialog.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
+
 
 export interface DateTime {
   date: string;
@@ -41,7 +42,7 @@ export class TaskOperationComponent implements OnInit {
   task: Task;
 
 
-  constructor(private _snackBar: MatSnackBar, private modalService: NgbModal, private formBuilder: FormBuilder, private taskService: TaskService, private route: ActivatedRoute) {
+  constructor(private router:Router,private _snackBar: MatSnackBar, private modalService: NgbModal, private formBuilder: FormBuilder, private taskService: TaskService, private route: ActivatedRoute) {
 
 
   }
@@ -106,6 +107,7 @@ export class TaskOperationComponent implements OnInit {
       this._snackBar.open("Success created task", 'Dismiss', {
         duration: 3000,
       });
+      this.router.navigate(['/task/view/'+this.task.id]);
     }), err => {
       console.log(err);
       this._snackBar.open(err.msg, 'Dismiss', {

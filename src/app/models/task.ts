@@ -14,6 +14,9 @@ export interface Task {
     scheduleType?: Task.ScheduleTypeEnum;
     time?: string;
     timezoneOffset?: number;
+    createdBy?:number;
+    createdAt?:number;
+
 }
 
 export namespace Task {
